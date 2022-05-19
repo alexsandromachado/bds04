@@ -28,7 +28,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 	private static final String[] CLIENT_OR_ADMIN = { "/events/**", "/cities/**" };
 
 	private static final String[] CLIENT_POST = { "/events/**" };
-	
+
+	private static final String[] A_POST = { "/cities/**" };
+
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
 		resources.tokenStore(tokenStore);
@@ -46,6 +48,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 		.antMatchers(PUBLIC).permitAll()
 		.antMatchers(HttpMethod.GET, CLIENT_OR_ADMIN).permitAll()
 		.antMatchers(HttpMethod.POST, CLIENT_POST).hasAnyRole("CLIENT", "ADMIN")
-		.anyRequest().hasAnyAuthority("ADMIN");		
+		.anyRequest().hasAnyRole("ADMIN");		
 	}
 }

@@ -21,7 +21,7 @@ public class EventDTO implements Serializable {
 	private LocalDate date;
 	private String url;
 	
-	@NotNull
+	@NotNull(message = "Campo requerido")
 	private Long cityId;
 	
 	public EventDTO() {
