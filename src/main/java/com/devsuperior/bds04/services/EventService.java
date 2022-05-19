@@ -24,7 +24,7 @@ public class EventService {
 	private EventRepository repository;
 	
 	@Autowired
-	private CityRepository categoryRepository;
+	private CityRepository cityRepository;
 
 	@Transactional(readOnly = true)
 	public Page<EventDTO> findAllPaged(Pageable pageable) {
@@ -72,14 +72,11 @@ public class EventService {
 	}
 	
 	private void copyDtoToEntity(EventDTO dto, Event entity) {
-		/*
-		 * entity.setName(dto.getName()); entity.setPrice(dto.getPrice());
-		 * entity.setDescription(dto.getDescription());
-		 * entity.setImgUrl(dto.getImgUrl()); entity.setDate(dto.getDate());
-		 * 
-		 * entity.getCategories().clear(); for(CityDTO catDto : dto.getCategories()) {
-		 * City category = categoryRepository.getOne(catDto.getId());
-		 * entity.getCategories().add(category); }
-		 */
+		
+		 entity.setName(dto.getName()); 
+		 entity.setUrl(dto.getUrl()); 
+		 entity.setDate(dto.getDate());
+		 entity.setCity(cityRepository.getOne(dto.getCityId()));
+		
 	}
 }
