@@ -1,4 +1,4 @@
-package com.devsuperior.dscatalog.resources;
+package com.devsuperior.bds04.resources;
 
 import java.net.URI;
 
@@ -20,7 +20,7 @@ import com.devsuperior.bds04.dto.CityDTO;
 import com.devsuperior.bds04.services.CityService;
 
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("/cities")
 public class CityResource {
 
 	@Autowired

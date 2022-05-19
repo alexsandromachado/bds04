@@ -1,4 +1,4 @@
-package com.devsuperior.dscatalog.resources;
+package com.devsuperior.bds04.resources;
 
 import java.net.URI;
 
@@ -22,7 +22,7 @@ import com.devsuperior.bds04.dto.EventDTO;
 import com.devsuperior.bds04.services.EventService;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/events")
 public class EventResource {
 
 	@Autowired
