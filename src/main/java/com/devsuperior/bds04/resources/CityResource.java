@@ -36,13 +36,6 @@ public class CityResource {
 		return ResponseEntity.ok(list);
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<CityDTO> findById(@PathVariable Long id) {
-		CityDTO dto = service.findById(id);
-		return ResponseEntity.ok(dto);
-
-	}
-
 	@PostMapping
 	public ResponseEntity<CityDTO> insert(@Valid @RequestBody CityDTO dto) {
 		dto = service.insert(dto);
@@ -50,17 +43,4 @@ public class CityResource {
 		return ResponseEntity.created(uri).body(dto);
 
 	}
-
-	@PutMapping("/{id}")
-	public ResponseEntity<CityDTO> update(@RequestBody CityDTO dto, @PathVariable Long id) {
-		dto = service.update(dto, id);
-		return ResponseEntity.ok(dto);
-	}
-
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		service.delete(id);
-		return ResponseEntity.noContent().build();
-	}
-
 }

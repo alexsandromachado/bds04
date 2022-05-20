@@ -34,31 +34,11 @@ public class EventResource {
 		return ResponseEntity.ok(list);
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<EventDTO> findById(@PathVariable Long id) {
-		EventDTO dto = service.findById(id);
-		return ResponseEntity.ok(dto);
-
-	}
-
-	@PostMapping
+		@PostMapping
 	public ResponseEntity<EventDTO> insert(@Valid @RequestBody EventDTO dto) {
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 
 	}
-
-	@PutMapping("/{id}")
-	public ResponseEntity<EventDTO> update(@Valid @RequestBody EventDTO dto, @PathVariable Long id) {
-		dto = service.update(dto, id);
-		return ResponseEntity.ok(dto);
-	}
-
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		service.delete(id);
-		return ResponseEntity.noContent().build();
-	}
-
 }

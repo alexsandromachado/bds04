@@ -32,16 +32,6 @@ public class CityService {
 		return list.map(i -> new CityDTO(i));
 	}
 
-	@Transactional(readOnly = true)
-	public CityDTO findById(Long id) {
-		Optional<City> obj = repository.findById(id);
-		/*
-		 * City entity = obj.orElseThrow(() -> new
-		 * ResourceNotFoundException("Entity not found")); return new CityDTO(entity);
-		 */
-		return null;
-	}
-
 	@Transactional
 	public CityDTO insert(CityDTO dto) {
 		City entity = new City();
@@ -50,21 +40,4 @@ public class CityService {
 		return new CityDTO(entity);
 	}
 
-	@Transactional
-	public CityDTO update(CityDTO dto, long id) {
-		/*
-		 * try { City entity = repository.getOne(id); entity.setName(dto.getName());
-		 * entity = repository.save(entity); return new CityDTO(entity); } catch
-		 * (EntityNotFoundException e) { throw new
-		 * ResourceNotFoundException("Id not found " + id); }
-		 */	return null;}
-
-	public void delete(Long id) {
-		/*
-		 * try { repository.deleteById(id); } catch (EmptyResultDataAccessException e) {
-		 * throw new ResourceNotFoundException("Id not found " + id); } catch
-		 * (DataIntegrityViolationException e) { throw new
-		 * DatabaseException("Integrity violation"); }
-		 */
-	}
 }

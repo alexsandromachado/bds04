@@ -32,16 +32,6 @@ public class EventService {
 		return list.map(i -> new EventDTO(i));
 	}
 
-	@Transactional(readOnly = true)
-	public EventDTO findById(Long id) {
-		Optional<Event> obj = repository.findById(id);
-		/*
-		 * Event entity = obj.orElseThrow(() -> new
-		 * ResourceNotFoundException("Entity not found")); return new EventDTO(entity,
-		 * entity.getCategories());
-		 */return null;
-	}
-
 	@Transactional
 	public EventDTO insert(EventDTO dto) {
 		Event entity = new Event();
@@ -51,26 +41,6 @@ public class EventService {
 		return new EventDTO(entity);
 	}
 
-	@Transactional
-	public EventDTO update(EventDTO dto, long id) {
-		/*
-		 * try { Event entity = repository.getOne(id); copyDtoToEntity(dto, entity);
-		 * entity.setName(dto.getName()); entity = repository.save(entity); return new
-		 * EventDTO(entity); } catch (EntityNotFoundException e) { throw new
-		 * ResourceNotFoundException("Id not found " + id); }
-		 */
-		return null;
-	}
-
-	public void delete(Long id) {
-		/*
-		 * try { repository.deleteById(id); } catch (EmptyResultDataAccessException e) {
-		 * throw new ResourceNotFoundException("Id not found " + id); } catch
-		 * (DataIntegrityViolationException e) { throw new
-		 * DatabaseException("Integrity violation"); }
-		 */
-	}
-	
 	private void copyDtoToEntity(EventDTO dto, Event entity) {
 		
 		 entity.setName(dto.getName()); 
